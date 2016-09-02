@@ -1,15 +1,11 @@
 {
   "name": "react-boilerplate",
   "version": "3.1.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
   "repository": {
     "type": "git",
     "url": "git://github.com/mxstbr/react-boilerplate.git"
   },
-  "engines": {
-    "npm": ">=3"
-  },
-  "author": "Max Stoiber",
+  "author": "Sahat Yalkabov",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
@@ -28,9 +24,6 @@
     "start:production": "npm run build && npm run start:prod",
     "start:prod": "cross-env NODE_ENV=production node server",
     "pagespeed": "node ./internals/scripts/pagespeed.js",
-    "presetup": "npm i chalk shelljs",
-    "setup": "node ./internals/scripts/setup.js",
-    "postsetup": "npm run build:dll",
     "clean": "shjs ./internals/scripts/clean.js",
     "clean:all": "npm run analyze:clean && npm run test:clean && npm run build:clean",
     "generate": "plop --plopfile internals/generators/index.js",
