@@ -8,17 +8,22 @@ import { addLocaleData } from 'react-intl';
 
 import enLocaleData from 'react-intl/locale-data/en';
 import deLocaleData from 'react-intl/locale-data/de';
+import frLocaleData from 'react-intl/locale-data/fr';
 
 addLocaleData(enLocaleData);
 addLocaleData(deLocaleData);
+addLocaleData(frLocaleData);
 
 export const appLocales = [
   'en',
   'de',
+  'fr',
+
 ];
 
 import enTranslationMessages from './translations/en.json';
 import deTranslationMessages from './translations/de.json';
+import frTranslationMessages from './translations/fr.json';
 
 export const formatTranslationMessages = (messages) => {
   const formattedMessages = {};
@@ -32,4 +37,5 @@ export const formatTranslationMessages = (messages) => {
 export const translationMessages = {
   en: formatTranslationMessages(enTranslationMessages),
   de: formatTranslationMessages(deTranslationMessages),
+  fr: formatTranslationMessages(frTranslationMessages),
 };

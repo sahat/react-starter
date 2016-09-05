@@ -4,16 +4,11 @@
 
 import React, { PropTypes } from 'react';
 
-import styles from './styles.css';
+import css from './styles.css';
 
 function A(props) {
   return (
-    <a
-      className={
-        props.className || styles.link
-      }
-      {...props}
-    />
+    <a className={props.className || css.link}{...props} />
   );
 }
 
