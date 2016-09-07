@@ -9,7 +9,6 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
 
-import messages from './messages';
 import { createStructuredSelector } from 'reselect';
 
 import {
@@ -25,7 +24,6 @@ import {
 import { changeUsername } from './actions';
 import { loadRepos } from '../App/actions';
 
-import { FormattedMessage } from 'react-intl';
 import RepoListItem from 'containers/RepoListItem';
 import Button from 'components/Button';
 import H2 from 'components/H2';
@@ -90,21 +88,21 @@ export class HomePage extends React.Component {
         <div>
           <section className={`${styles.textSection} ${styles.centered}`}>
             <H2>
-              <FormattedMessage {...messages.startProjectHeader} />
+              Start your next react project in seconds
             </H2>
             <p>
-              <FormattedMessage {...messages.startProjectMessage} />
+              Start your next react project in seconds
             </p>
           </section>
           <section className={styles.textSection}>
             <H2>
-              <FormattedMessage {...messages.trymeHeader} />
+              Try me!
             </H2>
             <form className={styles.usernameForm} onSubmit={this.props.onSubmitForm}>
               <label htmlFor="username">
-                <FormattedMessage {...messages.trymeMessage} />
+                Start your next react project in seconds
                 <span className={styles.atPrefix}>
-                  <FormattedMessage {...messages.trymeAtPrefix} />
+                  Start your next react project in seconds
                 </span>
                 <input
                   id="username"
@@ -119,7 +117,7 @@ export class HomePage extends React.Component {
             {mainContent}
           </section>
           <Button handleRoute={this.openFeaturesPage}>
-            <FormattedMessage {...messages.featuresButton} />
+            Start your next react project in seconds
           </Button>
         </div>
       </article>

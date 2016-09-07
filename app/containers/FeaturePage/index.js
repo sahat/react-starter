@@ -8,8 +8,6 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
 
-import messages from './messages';
-import { FormattedMessage } from 'react-intl';
 import Button from 'components/Button';
 import H1 from 'components/H1';
 
@@ -42,56 +40,35 @@ export class FeaturePage extends React.Component {
           ]}
         />
         <H1>
-          <FormattedMessage {...messages.header} />
+          Features
         </H1>
         <ul className={styles.list}>
           <li className={styles.listItem}>
             <p className={styles.listItemTitle}>
-              <FormattedMessage {...messages.scaffoldingHeader} />
+              Quick scaffolding
             </p>
             <p>
-              <FormattedMessage {...messages.scaffoldingMessage} />
+              Automate the creation of components, containers, routes, selectors
+              and sagas - and their tests - right from the CLI!
             </p>
           </li>
 
           <li className={styles.listItem}>
             <p className={styles.listItemTitle}>
-              <FormattedMessage {...messages.feedbackHeader} />
+              Instant feedback
             </p>
             <p>
-              <FormattedMessage {...messages.feedbackMessage} />
+              Enjoy the best DX and code your app at the speed of thought! Your
+              saved changes to the CSS and JS are reflected instantaneously
+              without refreshing the page. Preserve application state even when
+              you update something in the underlying code!
             </p>
           </li>
 
-          <li className={styles.listItem}>
-            <p className={styles.listItemTitle}>
-              <FormattedMessage {...messages.routingHeader} />
-            </p>
-            <p>
-              <FormattedMessage {...messages.routingMessage} />
-            </p>
-          </li>
 
-          <li className={styles.listItem}>
-            <p className={styles.listItemTitle}>
-              <FormattedMessage {...messages.networkHeader} />
-            </p>
-            <p>
-              <FormattedMessage {...messages.networkMessage} />
-            </p>
-          </li>
-
-          <li className={styles.listItem}>
-            <p className={styles.listItemTitle}>
-              <FormattedMessage {...messages.intlHeader} />
-            </p>
-            <p>
-              <FormattedMessage {...messages.intlMessage} />
-            </p>
-          </li>
         </ul>
         <Button handleRoute={this.openHomePage}>
-          <FormattedMessage {...messages.homeButton} />
+          Open Home Page
         </Button>
       </div>
     );
