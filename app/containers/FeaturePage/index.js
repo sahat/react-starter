@@ -14,18 +14,10 @@ import H1 from 'components/H1';
 import styles from './styles.css';
 
 export class FeaturePage extends React.Component {
-  /**
-   * Changes the route
-   *
-   * @param  {string} route The route we want to go to
-   */
   openRoute = (route) => {
     this.props.changeRoute(route);
   };
 
-  /**
-   * Changed route to '/'
-   */
   openHomePage = () => {
     this.openRoute('/');
   };
@@ -33,12 +25,7 @@ export class FeaturePage extends React.Component {
   render() {
     return (
       <div>
-        <Helmet
-          title="Feature Page"
-          meta={[
-            { name: 'description', content: 'Feature page of React.js Boilerplate application' },
-          ]}
-        />
+        <Helmet title="Feature Page" />
         <H1>
           Features
         </H1>
