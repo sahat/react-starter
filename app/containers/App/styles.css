@@ -15,7 +15,6 @@ body.fontLoaded {
 }
 
 :global(#app) {
-  background-color: #FAFAFA;
   min-height: 100%;
   min-width: 100%;
 }
