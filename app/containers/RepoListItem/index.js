@@ -8,7 +8,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 
-import { FormattedNumber } from 'react-intl';
 import { selectCurrentUser } from 'containers/App/selectors';
 import ListItem from 'components/ListItem';
 import IssueIcon from 'components/IssueIcon';
@@ -43,7 +42,7 @@ export class RepoListItem extends React.Component { // eslint-disable-line react
           target="_blank"
         >
           <IssueIcon className={styles.issueIcon} />
-          <FormattedNumber value={item.open_issues_count} />
+          {item.open_issues_count}
         </A>
       </div>
     );
