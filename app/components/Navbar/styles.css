@@ -1,0 +1,44 @@
+/* Navbar Styles */
+
+.active {
+  border-bottom-color: #3f51b5;
+}
+
+:global .navbar-default {
+  background-color: #fff;
+  border-color: #e0e0e0;
+}
+
+:global .navbar-default .navbar-nav {
+  color: #757575;
+}
+
+:global .navbar-default .navbar-nav > li > a {
+  color: #262626;
+  border-bottom: 3px solid transparent;
+  padding-top: 17.5px;
+  padding-bottom: 14.5px;
+  transition: all 0.25s;
+}
+
+:global .navbar-default .navbar-nav > li > a:hover {
+  background-color: transparent;;
+  border-bottom-color: #bdbdbd;
+}
+
+:global .navbar-default .navbar-nav > li > a.navbar-avatar {
+  padding-top: 13px;
+  padding-bottom: 10px;
+}
+
+:global .navbar-default .navbar-nav > li > a.navbar-avatar img {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+:global .navbar-default .navbar-nav > li.active > a {
+  border-bottom-color: #3f51b5;
+  background-color: transparent;
+  color: #262626;
+}
