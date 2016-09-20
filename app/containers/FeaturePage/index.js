@@ -5,13 +5,11 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
 
-import Button from 'components/Button';
-import H1 from 'components/H1';
-
-import styles from './styles.css';
+import css from './styles.css';
 
 export class FeaturePage extends React.Component {
   openRoute = (route) => {
@@ -24,39 +22,39 @@ export class FeaturePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <Helmet title="Feature Page" />
-        <H1>
-          Features
-        </H1>
-        <ul className={styles.list}>
-          <li className={styles.listItem}>
-            <p className={styles.listItemTitle}>
-              Quick scaffolding
-            </p>
-            <p>
-              Automate the creation of components, containers, routes, selectors
-              and sagas - and their tests - right from the CLI!
-            </p>
-          </li>
+        <div className="panel">
+          <div className="panel-body">
+            <h3>Features</h3>
+            <ul className="list-unstyled">
+              <li className={css.listItem}>
+                <p className={css.listItemTitle}>
+                  Quick scaffolding
+                </p>
+                <p>
+                  Automate the creation of components, containers, routes, selectors
+                  and sagas - and their tests - right from the CLI!
+                </p>
+              </li>
+              <li className={css.listItem}>
+                <p className={css.listItemTitle}>
+                  Instant feedback
+                </p>
+                <p>
+                  Enjoy the best DX and code your app at the speed of thought! Your
+                  saved changes to the CSS and JS are reflected instantaneously
+                  without refreshing the page. Preserve application state even when
+                  you update something in the underlying code!
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="text-center">
+          <Link to="/" className="btn btn-danger">Back to home</Link>
+        </div>
 
-          <li className={styles.listItem}>
-            <p className={styles.listItemTitle}>
-              Instant feedback
-            </p>
-            <p>
-              Enjoy the best DX and code your app at the speed of thought! Your
-              saved changes to the CSS and JS are reflected instantaneously
-              without refreshing the page. Preserve application state even when
-              you update something in the underlying code!
-            </p>
-          </li>
-
-
-        </ul>
-        <Button handleRoute={this.openHomePage}>
-          Open Home Page
-        </Button>
       </div>
     );
   }
