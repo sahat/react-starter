@@ -8,8 +8,12 @@
 // Needed for redux-saga es6 generator support
 import 'babel-polyfill';
 
+// Needed for Bootstrap CSS
+import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+
 /* eslint-disable import/no-unresolved */
-// Load the favicon, the manifest.json file and the .htaccess file
+// Load the favicon
 import 'file?name=[name].[ext]!./favicon.png';
 /* eslint-enable import/no-unresolved */
 
@@ -19,21 +23,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import FontFaceObserver from 'fontfaceobserver';
 import useScroll from 'react-router-scroll';
 import configureStore from './store';
-
-// Observe loading of Open Sans (to remove open sans, remove the <link> tag in
-// the index.html file and this observer)
-import styles from 'containers/App/styles.css';
-const openSansObserver = new FontFaceObserver('Open Sans', {});
-
-// When Open Sans is loaded, add a font-family using Open Sans to the body
-openSansObserver.load().then(() => {
-  document.body.classList.add(styles.fontLoaded);
-}, () => {
-  document.body.classList.remove(styles.fontLoaded);
-});
 
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router

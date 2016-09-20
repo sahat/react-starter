@@ -9,25 +9,19 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-// Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
-import 'sanitize.css/sanitize.css';
-
-import Img from 'components/Img';
+import Navbar from 'components/Navbar';
 import Footer from 'components/Footer';
-import Logo from './react-logo.png';
 
-import styles from './styles.css';
+import './styles.css';
 
 function App(props) {
   return (
-    <div className={styles.wrapper}>
+    <div>
       <Helmet
         titleTemplate="%s - React.js Boilerplate"
         defaultTitle="React.js Boilerplate"
       />
-      <a className={styles.logoWrapper} href="/">
-        <Img className={styles.logo} src={Logo} alt="React Logo" />
-      </a>
+      <Navbar />
       {React.Children.toArray(props.children)}
       <Footer />
     </div>
