@@ -1,17 +1,11 @@
 import React from 'react';
 
-import A from 'components/A';
-import styles from './styles.css';
+import css from './styles.css';
 
 function Footer() {
   return (
-    <footer className={styles.footer}>
-      <section>
-        <p>This project is licensed under the MIT license.</p>
-      </section>
-      <section>
-        <p>Made with love by <A href="https://twitter.com/mxstbr">Max Stoiber</A>.</p>
-      </section>
+    <footer className={css.footer}>
+      <p>© 2016 Company, Inc. All Rights Reserved.</p>
     </footer>
   );
 }
