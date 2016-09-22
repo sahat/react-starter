@@ -6,7 +6,6 @@ import expect from 'expect';
 import { shallow, mount } from 'enzyme';
 import React from 'react';
 
-import { IntlProvider, FormattedMessage } from 'react-intl';
 import { NotFound } from '../index';
 import H1 from 'components/H1';
 import Button from 'components/Button';

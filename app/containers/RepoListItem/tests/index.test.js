@@ -6,7 +6,6 @@ import expect from 'expect';
 import { shallow, mount } from 'enzyme';
 import React from 'react';
 
-import { IntlProvider } from 'react-intl';
 import { RepoListItem } from '../index';
 import ListItem from 'components/ListItem';
 

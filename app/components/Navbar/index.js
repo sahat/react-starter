@@ -30,7 +30,7 @@ function Navbar(props) {
   }
 
   return (
-    <nav className="navbar navbar-default navbar-static-top">
+    <nav className="navbar navbar-inverse navbar-static-top">
       <div className="container-fluid">
         <div className="navbar-header">
           <button type="button" data-toggle="collapse" data-target="#navbar" className="navbar-toggle collapsed">
@@ -45,6 +45,7 @@ function Navbar(props) {
           <ul className="nav navbar-nav">
             <li><Link to="/" activeClassName="active">Home</Link></li>
             <li><Link to="/features" activeClassName="active">Features</Link></li>
+            <li><Link to="/api" activeClassName="active">API Example</Link></li>
           </ul>
           {rightNav}
         </div>
