@@ -22,11 +22,13 @@ export class FeaturePage extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
+      <div className="container">
         <Helmet title="Feature Page" />
         <div className="panel">
           <div className="panel-body">
-            <h3>Features</h3>
+            <div className="page-header">
+              <h3>Features</h3>
+            </div>
             <ul className="list-unstyled">
               <li className={css.listItem}>
                 <p className={css.listItemTitle}>

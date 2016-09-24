@@ -4,13 +4,13 @@
   margin-right: 5px;
 }
 
-/*:global .navbar-default {*/
+/*:global(.navbar-inverse) {*/
   /*border: 0;*/
   /*background-color: #fff;*/
   /*box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);*/
 /*}*/
 
-/*:global .navbar-default .navbar-nav > li > a {*/
+/*:global .navbar-inverse .navbar-nav > li > a {*/
   /*color: #252525;*/
   /*font-size: 12px;*/
   /*font-weight: 500;*/
