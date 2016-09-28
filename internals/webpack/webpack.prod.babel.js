@@ -29,6 +29,11 @@ module.exports = require('./webpack.base.babel')({
     'css-loader?modules&-autoprefixer&importLoaders=1!postcss-loader'
   ),
 
+  vendorCssLoaders: ExtractTextPlugin.extract(
+    'style-loader',
+    'css-loader'
+  ),
+
   // In production, we minify our CSS with cssnano
   postcssPlugins: [
     postcssFocus(),

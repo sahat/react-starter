@@ -33,7 +33,7 @@ module.exports = (options) => ({
         // So, no need for ExtractTextPlugin here.
         test: /\.css$/,
         include: /node_modules/,
-        loaders: ['style-loader', 'css-loader'],
+        loader: options.vendorCssLoaders,
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
