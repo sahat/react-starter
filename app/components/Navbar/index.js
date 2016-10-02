@@ -15,7 +15,7 @@ function Navbar(props) {
     </ul>
   );
 
-  if (!props.user) {
+  if (props.user) {
     rightNav = (
       <ul className="nav navbar-nav pull-xs-right">
         <li className="nav-item dropdown">
@@ -39,7 +39,7 @@ function Navbar(props) {
           &#9776;
         </button>
         <div className="collapse navbar-toggleable-xs" id="collapsingNavbar">
-          <a className="navbar-brand" href="/">Project name</a>
+          <Link to="/" className="navbar-brand">Project name</Link>
           <ul className="nav navbar-nav">
             <li className="nav-item">
               <Link to="/" className="nav-link" activeClassName="active">Home</Link>
