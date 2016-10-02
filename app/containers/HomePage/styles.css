@@ -1,29 +1,57 @@
-.textSection {
-  margin: 3em auto;
+/* HomePage styles */
+/* CodePen by Mike Fowler (http://codepen.io/mikefowler) */
+
+:root {
+  --diameter: 1.25em;
+  --background: #157efb;
+  --border-width: 0.15625em;
+  --border-color: #fff;
+  --pulse: true;
 }
 
-.textSection:first-child {
-  margin-top: 0;
+.location {
+  margin-top: 1rem;
 }
 
-.centered {
-  text-align: center;
+.marker {
+  display: inline-block;
+  position: relative;
+  margin-right: 1rem;
+  vertical-align: middle;
+  width: var(--diameter);
+  height: var(--diameter);
+  background: var(--background);
+  border-radius: 50%;
+  animation: pulse 1s ease-in-out infinite alternate;
+  box-shadow: 0 0 0 var(--border-width) var(--border-color), 0 0 3px rgba(0, 0, 0, 0.4);
+
+  &:after {
+     content: '';
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     width: calc(var(--diameter) * 2);
+     height: calc(var(--diameter) * 2) ;
+     margin-left: -var(--diameter);
+     margin-top: -var(--diameter);
+     box-shadow: 0 0 0 2px var(--border-color);
+     border-radius: 50%;
+     animation: sonar 2s linear infinite;
+   }
 }
 
-.link {
-  text-decoration: none;
+@keyframes pulse {
+  0%   { transform: scale3d(0.8, 0.8, 0.8); }
+  100% { transform: scale3d(1, 1, 1); }
 }
 
-.usernameForm {
-  margin-bottom: 1em;
-}
-
-.input {
-  outline: none;
-  border-bottom: 1px dotted #999;
-}
-
-.atPrefix {
-  color: black;
-  margin-left: 0.4em;
+@keyframes sonar {
+  0% {
+    transform: scale3d(0.5, 0.5, 0.5);
+    opacity: 1;
+  }
+  50%, 100% {
+    transform: scale3d(1, 1, 1);
+    opacity: 0;
+  }
 }

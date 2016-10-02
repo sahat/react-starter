@@ -4,24 +4,43 @@
  * This is the first thing users see of our App, at the '/' route
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
+import Helmet from 'react-helmet';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import Helmet from 'react-helmet';
 
-import { changeUsername } from './actions';
-import { loadRepos } from '../App/actions';
-
-import Button from 'components/Button';
-import H2 from 'components/H2';
-import List from 'components/List';
-import ListItem from 'components/ListItem';
-import LoadingIndicator from 'components/LoadingIndicator';
+import { getLocation } from './actions';
 
 import css from './styles.css';
 
 export class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleLocationClick = this.handleLocationClick.bind(this);
+  }
+
+  handleLocationClick() {
+    this.props.dispatch(getLocation());
+  }
+
   render() {
+    const locationInfo = this.props.location ? (
+      <div className={css.location}>
+        <span className={css.marker}>
+          <span className={css.sonar} />
+        </span>
+        <strong>Lat/Long:</strong> {this.props.location.join(', ')}
+      </div>
+    ) : null;
+
+    const locationError = this.props.error ? (
+      <div className={css.location}>
+        <span className="text-danger">
+          <strong>Error:</strong> {this.props.error}
+        </span>
+      </div>
+    ) : null;
+
     return (
       <div>
         <Helmet title="Home" />
@@ -30,6 +49,11 @@ export class HomePage extends React.Component {
             <h1 className="display-3">React Starter</h1>
             <p>A boilerplate for React.js web applications.</p>
             <Link to="/features" className="btn btn-primary btn-lg" href="#" role="button">Learn more</Link>
+            {' '}
+            <button type="button" className="btn btn-success btn-lg" onClick={this.handleLocationClick}>
+              {this.props.isFetching ? 'Loading...' : 'Get my location'}
+            </button>
+            {locationInfo || locationError}
           </div>
         </div>
         <div className="container">
@@ -65,11 +89,20 @@ export class HomePage extends React.Component {
   }
 }
 
+HomePage.propTypes = {
+  location: PropTypes.array,
+  error: PropTypes.string,
+  isFetching: PropTypes.bool,
+  dispatch: PropTypes.func.isRequired
+};
+
 function mapStateToProps(state) {
+  const { location, error, isFetching } = state.home;
   return {
-    home: state.home,
-    username: state.home.username,
+    location,
+    error,
+    isFetching,
   };
 }
 
-export default connect(null)(HomePage);
+export default connect(mapStateToProps)(HomePage);

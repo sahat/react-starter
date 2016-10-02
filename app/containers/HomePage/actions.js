@@ -1,34 +1,39 @@
-/*
- * Home Actions
- *
- * Actions change things in your application
- * Since this boilerplate uses a uni-directional data flow, specifically redux,
- * we have these actions which are the only way your application interacts with
- * your appliction state. This guarantees that your state is up to date and nobody
- * messes it up weirdly somewhere.
- *
- * To add a new Action:
- * 1) Import your constant
- * 2) Add a function like this:
- *    export function yourAction(var) {
- *        return { type: YOUR_ACTION_CONSTANT, var: var }
- *    }
- */
-
-import {
-  CHANGE_USERNAME,
-} from './constants';
-
 /**
- * Changes the input field of the form
- *
- * @param  {name} name The new text of the input field
- *
- * @return {object}    An action object with a type of CHANGE_USERNAME
+ * Home Actions
  */
-export function changeUsername(name) {
+
+export const REQUEST_LOCATION = 'REQUEST_LOCATION';
+export const GET_LOCATION = 'GET_LOCATION';
+
+export function requestLocation() {
   return {
-    type: CHANGE_USERNAME,
-    name,
+    type: REQUEST_LOCATION
+  };
+}
+
+export function getLocation() {
+  return (dispatch) => {
+    // Display loading text until success or error callback is resolved
+    dispatch(requestLocation());
+
+    // Get latitude and longitude coordinates
+    const successCallback = (position) => {
+      dispatch({
+        type: GET_LOCATION,
+        location: [position.coords.latitude, position.coords.longitude]
+      });
+    };
+
+    // Location unavailable or permission denied
+    const errorCallback = (err) => {
+      dispatch({
+        type: GET_LOCATION,
+        error: err.message
+      });
+    };
+
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    }
   };
 }

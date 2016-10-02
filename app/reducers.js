@@ -4,10 +4,11 @@
  */
 
 import { fromJS } from 'immutable';
-import { combineReducers } from 'redux-immutable';
+import { combineReducers } from 'redux';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 import globalReducer from 'containers/App/reducer';
+import home from 'containers/HomePage/reducer';
 
 /*
  * routeReducer
@@ -42,8 +43,14 @@ function routeReducer(state = routeInitialState, action) {
  */
 export default function createReducer(asyncReducers) {
   return combineReducers({
-    route: routeReducer,
-    global: globalReducer,
-    ...asyncReducers,
+    home,
+    // route: routeReducer,
+    // global: globalReducer,
+    // ...asyncReducers,
   });
 }
+
+// export default combineReducers({
+//   messages,
+//   auth
+// });

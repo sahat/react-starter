@@ -5,31 +5,33 @@
  * application state.
  * To add a new action, add it to the switch statement in the reducer function
  *
- * Example:
- * case YOUR_ACTION_CONSTANT:
- *   return state.set('yourStateVariable', true);
  */
 
-import {
-  CHANGE_USERNAME,
-} from './constants';
-import { fromJS } from 'immutable';
+import { REQUEST_LOCATION, GET_LOCATION } from './actions';
 
-// The initial state of the App
-const initialState = fromJS({
-  username: '',
-});
+const initialState = {
+  location: null,
+  error: null,
+  isFetching: false
+};
 
-function homeReducer(state = initialState, action) {
+function home(state = initialState, action) {
   switch (action.type) {
-    case CHANGE_USERNAME:
-
-      // Delete prefixed '@' from the github username
-      return state
-        .set('username', action.name.replace(/@/gi, ''));
+    case REQUEST_LOCATION:
+      return {
+        ...state,
+        isFetching: true
+      };
+    case GET_LOCATION:
+      return {
+        ...state,
+        location: action.location,
+        error: action.error,
+        isFetching: false
+      };
     default:
       return state;
   }
 }
 
-export default homeReducer;
+export default home;
