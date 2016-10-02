@@ -59,7 +59,9 @@ module.exports = (options) => ({
       // make jQuery and fetch available
       $: 'jquery',
       jQuery: 'jquery',
-      fetch: 'exports?self.fetch!whatwg-fetch',
+      Tether: 'tether',
+      'window.Tether': 'tether',
+      fetch: 'exports?self.fetch!whatwg-fetch'
     }),
 
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
