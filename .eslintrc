@@ -23,6 +23,7 @@
       "error",
       "always"
     ],
+    "comma-dangle": 0,
     "arrow-body-style": 0,
     "import/imports-first": 0,
     "import/newline-after-import": 0,

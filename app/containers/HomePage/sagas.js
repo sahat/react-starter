@@ -2,10 +2,7 @@
  * Gets the repositories of the user from Github
  */
 
-import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
-import { LOCATION_CHANGE } from 'react-router-redux';
-import { LOAD_REPOS } from 'containers/App/constants';
-import { reposLoaded, repoLoadingError } from 'containers/App/actions';
+import { LOAD_REPOS, reposLoaded, repoLoadingError } from 'containers/App/actions';
 
 import request from 'utils/request';
 import { selectUsername } from 'containers/HomePage/selectors';
@@ -16,10 +13,10 @@ import { selectUsername } from 'containers/HomePage/selectors';
 export function* getRepos() {
   // Select username from store
   const username = yield select(selectUsername());
-  const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
+  const requestUrl = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
 
   // Call our request helper (see 'utils/request')
-  const repos = yield call(request, requestURL);
+  const repos = yield call(request, requestUrl);
 
   if (!repos.err) {
     yield put(reposLoaded(repos.data, username));

@@ -42,13 +42,7 @@ if (window.devToolsExtension) {
   window.devToolsExtension.updateStore(store);
 }
 
-// Sync history and store, as the react-router-redux reducer
-// is under the non-default key ("routing"), selectLocationState
-// must be provided for resolving how to retrieve the "route" in the state
-import { selectLocationState } from 'containers/App/selectors';
-const history = syncHistoryWithStore(browserHistory, store, {
-  selectLocationState: selectLocationState(),
-});
+const history = syncHistoryWithStore(browserHistory, store);
 
 // Set up the router, wrapping all Routes in the App component
 import App from 'containers/App';
