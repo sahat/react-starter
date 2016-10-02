@@ -1,19 +1,5 @@
 /* Navbar Styles */
 
-.username {
-  margin-right: 5px;
+.userDropdown {
+  margin-right: 2px;
 }
-
-/*:global(.navbar-inverse) {*/
-  /*border: 0;*/
-  /*background-color: #fff;*/
-  /*box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);*/
-/*}*/
-
-/*:global .navbar-inverse .navbar-nav > li > a {*/
-  /*color: #252525;*/
-  /*font-size: 12px;*/
-  /*font-weight: 500;*/
-  /*text-transform: uppercase;*/
-  /*transition: all 0.2s linear;*/
-/*}*/

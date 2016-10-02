@@ -5,47 +5,51 @@ import css from './styles.css';
 
 function Navbar(props) {
   let rightNav = (
-    <ul className="nav navbar-nav navbar-right">
-      <li><Link to="/login" activeClassName="active">Log in</Link></li>
-      <li><Link to="/signup" activeClassName="active">Sign up</Link></li>
+    <ul className="nav navbar-nav pull-xs-right">
+      <li className="nav-item">
+        <Link to="/login" className="nav-link" activeClassName="active">Log in</Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/signup" className="nav-link" activeClassName="active">Sign up</Link>
+      </li>
     </ul>
   );
 
-  if (props.user) {
+  if (!props.user) {
     rightNav = (
-      <ul className="nav navbar-nav navbar-right">
-        <li className="dropdown">
-          <a href="#" data-toggle="dropdown" className="dropdown-toggle">
-            <span className={css.username}>John Smith</span>
+      <ul className="nav navbar-nav pull-xs-right">
+        <li className="nav-item dropdown">
+          <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">
+            <span className={css.userDropdown}>John Smith</span>
             <i className="caret" />
           </a>
-          <ul className="dropdown-menu">
-            <li><Link to="/account">My Account</Link></li>
-            <li className="divider" />
-            <li><a href="#" onClick={props.logout}>Logout</a></li>
-          </ul>
+          <div className="dropdown-menu">
+            <Link to="/account" className="dropdown-item">My Account</Link>
+            <button onClick={props.logout} className="dropdown-item">Logout</button>
+          </div>
         </li>
       </ul>
     );
   }
 
   return (
-    <nav className="navbar navbar-inverse navbar-static-top">
-      <div className="container-fluid">
-        <div className="navbar-header">
-          <button type="button" data-toggle="collapse" data-target="#navbar" className="navbar-toggle collapsed">
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar" />
-            <span className="icon-bar" />
-            <span className="icon-bar" />
-          </button>
-          <Link to="/" className="navbar-brand">Project name</Link>
-        </div>
-        <div id="navbar" className="navbar-collapse collapse">
+    <nav className="navbar navbar-dark navbar-full bg-inverse">
+      <div className="container">
+        <button className="navbar-toggler hidden-sm-up bg-inverse" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+          &#9776;
+        </button>
+        <div className="collapse navbar-toggleable-xs" id="collapsingNavbar">
+          <a className="navbar-brand" href="/">Project name</a>
           <ul className="nav navbar-nav">
-            <li><Link to="/" activeClassName="active">Home</Link></li>
-            <li><Link to="/features" activeClassName="active">Features</Link></li>
-            <li><Link to="/api" activeClassName="active">API Example</Link></li>
+            <li className="nav-item">
+              <Link to="/" className="nav-link" activeClassName="active">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/features" className="nav-link" activeClassName="active">Features</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/api" className="nav-link" activeClassName="active">API Example</Link>
+            </li>
           </ul>
           {rightNav}
         </div>

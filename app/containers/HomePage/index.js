@@ -5,8 +5,8 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
 
 import { changeUsername } from './actions';
@@ -18,49 +18,46 @@ import List from 'components/List';
 import ListItem from 'components/ListItem';
 import LoadingIndicator from 'components/LoadingIndicator';
 
-import styles from './styles.css';
+import css from './styles.css';
 
 export class HomePage extends React.Component {
   render() {
     return (
-      <div className="container">
-        <Helmet title="Home Page" />
-        <h1>React Starter</h1>
-        <p className="lead">A boilerplate for React.js web applications.</p>
-        <div className="row">
-          <div className="col-sm-4">
-            <h3>Heading</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-              mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-              mollis euismod. Donec sed odio dui.
-            </p>
-            <a href="#" role="button" className="btn btn-default">View details</a>
-          </div>
-          <div className="col-sm-4">
-            <h3>Heading</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-              mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-              mollis euismod. Donec sed odio dui.
-            </p>
-            <a href="#" role="button" className="btn btn-default">View details</a>
+      <div>
+        <Helmet title="Home" />
+        <div className="jumbotron">
+          <div className="container">
+            <h1 className="display-3">React Starter</h1>
+            <p>A boilerplate for React.js web applications.</p>
+            <Link to="/features" className="btn btn-primary btn-lg" href="#" role="button">Learn more</Link>
           </div>
         </div>
-        <div className="row">
-          <div className="col-sm-4">
-            <h3>Heading</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-              mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-              mollis euismod. Donec sed odio dui.
-            </p>
-            <a href="#" role="button" className="btn btn-default">View details</a>
-          </div>
-          <div className="col-sm-4">
-            <h3>Heading</h3>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-              mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-              mollis euismod. Donec sed odio dui.
-            </p>
-            <a href="#" role="button" className="btn btn-default">View details</a>
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-4">
+              <h3>Heading</h3>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                mollis euismod. Donec sed odio dui.
+              </p>
+              <a href="#" className="btn btn-secondary">View details</a>
+            </div>
+            <div className="col-sm-4">
+              <h3>Heading</h3>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                mollis euismod. Donec sed odio dui.
+              </p>
+              <a href="#" className="btn btn-secondary">View details</a>
+            </div>
+            <div className="col-sm-4">
+              <h3>Heading</h3>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                mollis euismod. Donec sed odio dui.
+              </p>
+              <a href="#" className="btn btn-secondary">View details</a>
+            </div>
           </div>
         </div>
       </div>
@@ -70,8 +67,9 @@ export class HomePage extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user,
+    home: state.home,
+    username: state.home.username,
   };
 }
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(null)(HomePage);

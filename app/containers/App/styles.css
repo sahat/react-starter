@@ -1,4 +1,4 @@
-/* Global styles */
+/* Global app styles */
 
 html {
   position: relative;
@@ -6,17 +6,6 @@ html {
 }
 
 body {
-  margin-bottom: 70px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'HelveticaNeue-CondensedBold', 'Helvetica Neue', Arial, sans-serif;
-}
-
-a {
-  color: #0462f8;
-}
-
-a:hover {
-  color: #0462f8;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
 }
