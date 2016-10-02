@@ -44,11 +44,11 @@ export class HomePage extends React.Component {
     return (
       <div>
         <Helmet title="Home" />
-        <div className="jumbotron">
+        <div className="jumbotron jumbotron-fluid">
           <div className="container">
-            <h1 className="display-3">React Starter</h1>
+            <h1 className="display-4">React Starter</h1>
             <p>A boilerplate for React.js web applications.</p>
-            <Link to="/features" className="btn btn-primary btn-lg" href="#" role="button">Learn more</Link>
+            <Link to="/features" className="btn btn-primary btn-lg">Learn more</Link>
             {' '}
             <button type="button" className="btn btn-success btn-lg" onClick={this.handleLocationClick}>
               {this.props.isFetching ? 'Loading...' : 'Get my location'}

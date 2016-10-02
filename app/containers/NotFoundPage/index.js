@@ -1,43 +1,20 @@
-/**
+/*
  * NotFoundPage
- *
- * This is the page we show when the user visits a url that doesn't have a route
  */
 
 import React from 'react';
-import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
+import { Link } from 'react-router';
 
-import Button from 'components/Button';
-import H1 from 'components/H1';
+import css from './styles.css';
 
-export function NotFound(props) {
+export function NotFoundPage() {
   return (
-    <article>
-      <H1>
-        Not found
-      </H1>
-      <Button
-        handleRoute={function redirect() {
-          props.changeRoute('/');
-        }}
-      >
-        Home
-      </Button>
-    </article>
+    <div className={css.centeredContainer}>
+      <h1>Not Found</h1>
+      <p>The page you are looking for could not be found.</p>
+      <Link to="/">Go back to home</Link>
+    </div>
   );
 }
 
-NotFound.propTypes = {
-  changeRoute: React.PropTypes.func,
-};
-
-// react-redux stuff
-function mapDispatchToProps(dispatch) {
-  return {
-    changeRoute: (url) => dispatch(push(url)),
-  };
-}
-
-// Wrap the component to inject dispatch and state into it
-export default connect(null, mapDispatchToProps)(NotFound);
+export default NotFoundPage;
