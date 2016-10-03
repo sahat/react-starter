@@ -1,0 +1,10 @@
+.alertSuccess {
+  color: #fff;
+  background-color: #29b35b;
+  border-color: #29b35b;
+  border-radius: 0;
+}
+
+.alertHeading {
+  text-transform: uppercase;
+}
