@@ -46,8 +46,8 @@ export class HomePage extends React.Component {
         <Helmet title="Home" />
         <div className="jumbotron jumbotron-fluid">
           <div className="container">
-            <h1 className="display-4">React Starter</h1>
-            <p>A boilerplate for React.js web applications.</p>
+            <h1 className="display-3">React Starter</h1>
+            <p className="lead">A boilerplate for React.js web applications.</p>
             <Link to="/features" className="btn btn-primary btn-lg">Learn more</Link>
             {' '}
             <button type="button" className="btn btn-success btn-lg" onClick={this.handleLocationClick}>

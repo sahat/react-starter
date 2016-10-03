@@ -48,7 +48,7 @@ function Navbar(props) {
               <Link to="/features" className="nav-link" activeClassName="active">Features</Link>
             </li>
             <li className="nav-item">
-              <Link to="/api" className="nav-link" activeClassName="active">API Example</Link>
+              <Link to="/examples" className="nav-link" activeClassName="active">Examples</Link>
             </li>
           </ul>
           {rightNav}

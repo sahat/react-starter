@@ -23,40 +23,24 @@ export class FeaturePage extends React.Component {
   render() {
     return (
       <div className="container">
-        <Helmet title="Feature Page" />
-        <div className="panel">
-          <div className="panel-body">
-            <div className="page-header">
-              <h3>Features</h3>
-            </div>
-            <ul className="list-unstyled">
-              <li className={css.listItem}>
-                <p className={css.listItemTitle}>
-                  Quick scaffolding
-                </p>
-                <p>
-                  Automate the creation of components, containers, routes, selectors
-                  and sagas - and their tests - right from the CLI!
-                </p>
-              </li>
-              <li className={css.listItem}>
-                <p className={css.listItemTitle}>
-                  Instant feedback
-                </p>
-                <p>
-                  Enjoy the best DX and code your app at the speed of thought! Your
-                  saved changes to the CSS and JS are reflected instantaneously
-                  without refreshing the page. Preserve application state even when
-                  you update something in the underlying code!
-                </p>
-              </li>
-            </ul>
-          </div>
+        <Helmet title="Features" />
+        <h1 className="display-4 m-t-3 m-b-3">Features</h1>
+        <div className="card card-block">
+          <h4 className="card-title">Quick scaffolding</h4>
+          <p className="card-text">
+            Automate the creation of components, containers, routes, selectors
+            and sagas - and their tests - right from the CLI!
+          </p>
         </div>
-        <div className="text-center">
-          <Link to="/" className="btn btn-danger">Back to home</Link>
+        <div className="card card-block">
+          <h4 className="card-title">Instant feedback</h4>
+          <p className="card-text">
+            Enjoy the best DX and code your app at the speed of thought! Your
+            saved changes to the CSS and JS are reflected instantaneously
+            without refreshing the page. Preserve application state even when
+            you update something in the underlying code!
+          </p>
         </div>
-
       </div>
     );
   }
