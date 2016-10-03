@@ -1,14 +1,13 @@
 .bg-warning {
-  font-weight: 600;
-  border-radius: 3px;
   border: 1px solid rgba(0,0,0,.125);
+  border-radius: 3px;
   background: linear-gradient(160deg, #318edf, #8053ca);
   box-shadow: 0 .2rem .2rem rgba(0,0,0,.2);
 }
 
 :global .bg-info {
-  border-radius: 3px;
   border: 1px solid rgba(0,0,0,.125);
+  border-radius: 3px;
   background: linear-gradient(160deg, #318edf, #8053ca);
   box-shadow: 0 .2rem .2rem rgba(0,0,0,.2);
 }

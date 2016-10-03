@@ -17,6 +17,13 @@ export class BootstrapClassnames extends React.Component {
         <div className="m-t-2 m-b-2">
           <Link to="/examples">← Go back</Link>
         </div>
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">app</li>
+          <li className="breadcrumb-item">containers</li>
+          <li className="breadcrumb-item">ExamplesPage</li>
+          <li className="breadcrumb-item">BootstrapClassnames</li>
+          <li className="breadcrumb-item">index.js</li>
+        </ol>
         <h3>Before</h3>
         <p>This is a default "success" alert component directly from the Bootstrap documentation.</p>
         <div className="alert alert-success" role="alert">
