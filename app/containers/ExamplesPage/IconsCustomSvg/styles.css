@@ -1,0 +1,15 @@
+.icon {
+  width: 75px;
+  height: 75px;
+}
+
+.inlineSvg svg {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.inlineSvg svg:hover {
+  color: #c74343;
+  fill: currentColor;
+  transform: scale(1.1);
+}

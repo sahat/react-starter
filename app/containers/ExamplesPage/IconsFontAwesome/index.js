@@ -35,14 +35,14 @@ class IconsFontAwesome extends React.Component {
           <dd><pre>{'import * as FontAwesome from \'react-icons/lib/fa\''}</pre></dd>
         </dl>
         <p>When referencing icons follow the camel-case notation prefixed with <code>Fa</code>. If you are not sure, you can always double-check by peeking into <em>node_modules/react-icons/fa/icon_name.js</em>. For example, <code>cc-amex</code> is <code>FaCcAmex</code> and <code>caret-square-o-right</code> is <code>FaCaretSquareORight</code>.</p>
-        <h4>Basic icons</h4>
+        <h5>Basic icons</h5>
         <ul className="list-inline">
           <li className="list-inline-item"><FontAwesome.FaBeer /></li>
           <li className="list-inline-item"><FontAwesome.FaCamera /></li>
           <li className="list-inline-item"><FontAwesome.FaCalendar /></li>
           <li className="list-inline-item"><FontAwesome.FaCog /></li>
         </ul>
-        <h4>Passing options to icons</h4>
+        <h5>Custom size and color</h5>
         <ul className="list-inline">
           <li className="list-inline-item">
             <FontAwesome.FaArchive size={36} />
