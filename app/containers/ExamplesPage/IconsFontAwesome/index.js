@@ -1,7 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'react-router';
-import * as FontAwesome from 'react-icons/lib/fa';
+import FaBeer from 'react-icons/lib/fa/beer';
+import FaCamera from 'react-icons/lib/fa/camera';
+import FaCalendar from 'react-icons/lib/fa/calendar';
+import FaCog from 'react-icons/lib/fa/cog';
+import FaArchive from 'react-icons/lib/fa/archive';
+import FaCcAmex from 'react-icons/lib/fa/cc-amex';
 
 class IconsFontAwesome extends React.Component {
   render() {
@@ -25,7 +30,7 @@ class IconsFontAwesome extends React.Component {
         <p>
           This example uses <strong>react-icons</strong> package for displaying Font Awesome icons. Be sure to import icons from <code>'react-icons/lib/'</code> instead of <code>'react-icons'</code> directly, as you will get a syntax error because this package is written and distributed in ES6 and our Webpack does not transpile anything inside <strong>/node_modules/</strong> directory.
         </p>
-        <p>There are three ways to import icons. Use whichever approach you prefer:</p>
+        <p>There are three ways to import icons:</p>
         <dl>
           <dt>1. Import one icon</dt>
           <dd><pre>{'import FaBeer from \'react-icons/lib/fa/beer\''}</pre></dd>
@@ -34,21 +39,22 @@ class IconsFontAwesome extends React.Component {
           <dt>3. Import all icons</dt>
           <dd><pre>{'import * as FontAwesome from \'react-icons/lib/fa\''}</pre></dd>
         </dl>
+        <p className="bg-info p-a-1"><strong>Note:</strong> I wouldn't advise option <strong>2</strong> and <strong>3</strong> as it would pull in the entire Font Awesome collection, resulting in almost 2 MB minified application file. It is best to import icons individually as needed.</p>
         <p>When referencing icons follow the camel-case notation prefixed with <code>Fa</code>. If you are not sure, you can always double-check by peeking into <em>node_modules/react-icons/fa/icon_name.js</em>. For example, <code>cc-amex</code> is <code>FaCcAmex</code> and <code>caret-square-o-right</code> is <code>FaCaretSquareORight</code>.</p>
         <h5>Basic icons</h5>
         <ul className="list-inline">
-          <li className="list-inline-item"><FontAwesome.FaBeer /></li>
-          <li className="list-inline-item"><FontAwesome.FaCamera /></li>
-          <li className="list-inline-item"><FontAwesome.FaCalendar /></li>
-          <li className="list-inline-item"><FontAwesome.FaCog /></li>
+          <li className="list-inline-item"><FaBeer /></li>
+          <li className="list-inline-item"><FaCamera /></li>
+          <li className="list-inline-item"><FaCalendar /></li>
+          <li className="list-inline-item"><FaCog /></li>
         </ul>
         <h5>Custom size and color</h5>
         <ul className="list-inline">
           <li className="list-inline-item">
-            <FontAwesome.FaArchive size={36} />
+            <FaArchive size={36} />
           </li>
           <li className="list-inline-item">
-            <FontAwesome.FaCcAmex color="#0072BC" size={36} />
+            <FaCcAmex color="#0072BC" size={36} />
           </li>
         </ul>
       </div>
