@@ -19,10 +19,6 @@
     }
   },
   "rules": {
-    "arrow-parens": [
-      "error",
-      "always"
-    ],
     "comma-dangle": 0,
     "arrow-body-style": 0,
     "import/imports-first": 0,

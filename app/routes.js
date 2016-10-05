@@ -10,6 +10,8 @@ import NotFoundPage from 'containers/NotFoundPage';
 // Example pages
 import BootstrapGlobal from 'containers/ExamplesPage/BootstrapGlobal';
 import BootstrapClassnames from 'containers/ExamplesPage/BootstrapClassnames';
+import Pagination from 'containers/ExamplesPage/Pagination';
+import PaginationUrl from 'containers/ExamplesPage/PaginationUrl';
 
 export default function createRoutes(store) {
   return (
@@ -18,8 +20,10 @@ export default function createRoutes(store) {
       <Route path="/features" component={FeaturePage} />
       <Route path="/examples">
         <IndexRoute component={ExamplesPage} />
-        <Route path="bootstrap/global" component={BootstrapGlobal} />
-        <Route path="bootstrap/classnames" component={BootstrapClassnames} />
+        <Route path="bootstrap-global" component={BootstrapGlobal} />
+        <Route path="bootstrap-classnames" component={BootstrapClassnames} />
+        <Route path="pagination" component={Pagination} />
+        <Route path="pagination-url" component={PaginationUrl} />
       </Route>
       <Route path="*" component={NotFoundPage} />
     </Route>

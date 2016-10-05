@@ -6,6 +6,7 @@
  */
 
 // Needed for redux-saga es6 generator support
+import 'whatwg-fetch';
 import 'babel-polyfill';
 
 // Bootstrap CSS
