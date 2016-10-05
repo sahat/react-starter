@@ -30,7 +30,6 @@ export class Pagination extends React.Component {
 
   render() {
     const { data, totalPages, errorMessage } = this.props;
-    console.log(errorMessage)
 
     return (
       <div className="container">
