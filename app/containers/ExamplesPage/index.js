@@ -44,8 +44,8 @@ export class ExamplesPage extends React.Component {
         <div className="card card-block">
           <h4 className="card-title">Icons</h4>
           <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <Link to="/examples/pagination" className="card-link">Font Awesome</Link>
-          <Link to="/examples/pagination" className="card-link">Custom SVG icons</Link>
+          <Link to="/examples/icons-fa" className="card-link">Font Awesome</Link>
+          <Link to="/examples/icons-svg" className="card-link">Custom SVG icons</Link>
         </div>
 
         <div className="card card-block">
