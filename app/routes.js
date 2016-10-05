@@ -12,6 +12,8 @@ import BootstrapGlobal from 'containers/ExamplesPage/BootstrapGlobal';
 import BootstrapClassnames from 'containers/ExamplesPage/BootstrapClassnames';
 import Pagination from 'containers/ExamplesPage/Pagination';
 import PaginationUrl from 'containers/ExamplesPage/PaginationUrl';
+import IconsFontAwesome from 'containers/ExamplesPage/IconsFontAwesome';
+import IconsCustomSvg from 'containers/ExamplesPage/IconsCustomSvg';
 
 export default function createRoutes(store) {
   return (
@@ -24,6 +26,8 @@ export default function createRoutes(store) {
         <Route path="bootstrap-classnames" component={BootstrapClassnames} />
         <Route path="pagination" component={Pagination} />
         <Route path="pagination-url" component={PaginationUrl} />
+        <Route path="icons-fa" component={IconsFontAwesome} />
+        <Route path="icons-svg" component={IconsCustomSvg} />
       </Route>
       <Route path="*" component={NotFoundPage} />
     </Route>
