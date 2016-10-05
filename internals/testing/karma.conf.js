@@ -1,4 +1,4 @@
-const webpackConfig = require('../webpack/webpack.test.babel');
+const webpackConfig = require('../webpack/webpack.config.test');
 const argv = require('minimist')(process.argv.slice(2));
 const path = require('path');
 
