@@ -4,6 +4,7 @@
 
 const path = require('path');
 const fs = require('fs');
+const chalk = require('chalk');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const logger = require('../../server/logger');
@@ -13,8 +14,6 @@ const dllPlugin = pkg.dllPlugin;
 
 // PostCSS plugins
 const cssnext = require('postcss-cssnext');
-const postcssFocus = require('postcss-focus');
-const postcssReporter = require('postcss-reporter');
 
 const plugins = [
   new webpack.HotModuleReplacementPlugin(), // Tell webpack we want hot reloading
@@ -25,7 +24,7 @@ const plugins = [
   }),
 ];
 
-module.exports = require('./webpack.base.babel')({
+module.exports = require('./webpack.config.base')({
   // Add hot reloading in development
   entry: [
     'eventsource-polyfill', // Necessary for hot reloading with IE
@@ -49,13 +48,7 @@ module.exports = require('./webpack.base.babel')({
 
   // Process the CSS with PostCSS
   postcssPlugins: [
-    postcssFocus(), // Add a :focus to every :hover
-    cssnext({ // Allow future CSS features to be used, also auto-prefixes the CSS...
-      browsers: ['last 2 versions', 'IE > 10'], // ...based on this browser list
-    }),
-    postcssReporter({ // Posts messages from plugins to the terminal
-      clearMessages: true,
-    })
+    cssnext({ browsers: ['last 2 versions', 'IE > 10'] })
   ],
 
   // Tell babel that we want to hot-reload
@@ -104,7 +97,7 @@ function dependencyHandlers() {
     const manifestPath = path.resolve(dllPath, 'reactBoilerplateDeps.json');
 
     if (!fs.existsSync(manifestPath)) {
-      logger.error('The DLL manifest is missing. Please run `npm run build:dll`');
+      console.error(chalk.red('The DLL manifest is missing. Please run `npm run build:dll'));
       process.exit(0);
     }
 
