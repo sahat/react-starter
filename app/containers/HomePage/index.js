@@ -9,6 +9,7 @@ import Helmet from 'react-helmet';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+import LoadingSpinner from '../../components/LoadingSpinner';
 import { getLocation } from './actions';
 
 import css from './styles.css';
@@ -51,9 +52,9 @@ export class HomePage extends React.Component {
             <Link to="/features" className="btn btn-primary btn-lg">Learn more</Link>
             {' '}
             <button type="button" className="btn btn-success btn-lg" onClick={this.handleLocationClick}>
-              {this.props.isFetching ? 'Loading...' : 'Get my location'}
+              Get my location
             </button>
-            {locationInfo || locationError}
+            {this.props.isFetching ? <LoadingSpinner /> : locationInfo || locationError}
           </div>
         </div>
         <div className="container">
