@@ -4,9 +4,14 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import ReactPaginate from 'react-paginate';
 
+// Actions
 import { loadPopularRepos } from './actions';
 
-import css from './styles.css';
+// Components
+import FetchError from '../../../components/FetchError';
+
+// Styles
+import './styles.css';
 
 export class Pagination extends React.Component {
   constructor(props) {
@@ -24,14 +29,8 @@ export class Pagination extends React.Component {
   }
 
   render() {
-    const { data, error, totalPages } = this.props;
-
-    const errorMessage = error ? (
-      <div className="bg-danger p-a-1">
-        <h4>Error</h4>
-        <p>{error.message}</p>
-      </div>
-    ) : null;
+    const { data, totalPages, errorMessage } = this.props;
+    console.log(errorMessage)
 
     return (
       <div className="container">
@@ -54,20 +53,16 @@ export class Pagination extends React.Component {
         <p>
           Below is a simple pagination example using GitHub API for fetching most popular JavaScript repositories. Unlike GitHub, many APIs do not have <a href="https://developer.github.com/v3/#pagination">built-in pagination</a> support. For those cases take a look at the <a href="https://github.com/AdeleD/react-paginate/blob/master/demo/js/demo.js">official demo</a> that shows you how to use <strong>offset</strong> to fetch the next set of items.
         </p>
-
         <p><code>ReactPaginate</code> primarily consists of two parts:</p>
         <ul>
           <li><strong>pageNum</strong> — Total number of pages. You can have 1000s of pages but only have 10 buttons that control pagination.</li>
           <li><strong>clickCallback</strong> — Function that gets called every time you press a page button, passing currently selected page (0-based) as its parameter.</li>
         </ul>
-
         <p>One thing to keep in mind, pagination <u>does not</u> control your data displaying logic (e.g. table rows below). Pagination component is only responsible for tracking currently selected page. It is up to you to fetch corresponding data, while knowing <strong>total number of items</strong>, <strong>total number of pages</strong> (<em>total count</em> divided by <em>items displayed per page</em>) and <strong>current page</strong>. Using this information you can query an API for the next set of items.</p>
-
         <p className="bg-faded p-a-1">
           <strong>Note:</strong> Depending on your use case, consider caching page results. <a href="https://github.com/cloudmu/react-redux-starter-kit/blob/master/src/actions/repos.js#L66">This boilerplate repository</a> seems to be storing paginated data in an object where each key is a page number. For more advanced use case where data can change, see
           <a href="http://programmers.stackexchange.com/questions/190149/what-are-best-practices-for-caching-paginated-results-whose-ordering-properties"> this thread</a> on Programmer's Exchange. Also, consider adding a loading indicator while data is being fetched.
         </p>
-
         <table className="table">
           <thead className="thead-inverse">
             <tr>
@@ -78,7 +73,7 @@ export class Pagination extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {data.map((repo, index) =>
+            {data.map((repo) =>
               <tr key={repo.id}>
                 <td>{repo.name}</td>
                 <td>{repo.stargazers_count}</td>
@@ -88,9 +83,7 @@ export class Pagination extends React.Component {
             )}
           </tbody>
         </table>
-
-        {errorMessage}
-
+        <FetchError message={errorMessage} />
         <ReactPaginate
           previousLabel="«"
           nextLabel="»"
@@ -117,16 +110,15 @@ export class Pagination extends React.Component {
 Pagination.propTypes = {
   data: PropTypes.array,
   totalPages: PropTypes.number,
-  error: PropTypes.obj,
+  errorMessage: PropTypes.string,
   dispatch: PropTypes.func.isRequired
 };
 
-function mapStateToProps(state) {
-  return {
-    data: state.pagination.data,
-    totalPages: state.pagination.totalPages,
-    error: state.pagination.error,
-  };
-}
+
+const mapStateToProps = (state) => ({
+  data: state.pagination.data,
+  totalPages: state.pagination.totalPages,
+  errorMessage: state.pagination.errorMessage
+});
 
 export default connect(mapStateToProps)(Pagination);

@@ -8,7 +8,6 @@ import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 
 export class ExamplesPage extends React.Component {
-
   render() {
     return (
       <div className="container">
@@ -17,15 +16,15 @@ export class ExamplesPage extends React.Component {
         <div className="card card-block">
           <h4 className="card-title">Bootstrap CSS overrides</h4>
           <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <Link to="/examples/bootstrap/global" className="card-link">Using ":global"</Link>
-          <Link to="/examples/bootstrap/classnames" className="card-link">Using "classnames"</Link>
+          <Link to="/examples/bootstrap-global" className="card-link">Using ":global"</Link>
+          <Link to="/examples/bootstrap-classnames" className="card-link">Using "classnames"</Link>
         </div>
 
         <div className="card card-block">
           <h4 className="card-title">Pagination</h4>
           <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <Link to="/examples/pagination" className="card-link">Pagination</Link>
-          <Link to="/examples/pagination" className="card-link">Pagination with URL change</Link>
+          <Link to="/examples/pagination-url" className="card-link">Pagination with URL change</Link>
         </div>
 
         <div className="card card-block">

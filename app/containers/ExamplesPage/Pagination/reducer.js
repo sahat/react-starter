@@ -1,17 +1,12 @@
 /*
- * HomeReducer
- *
- * The reducer takes care of our data. Using actions, we can change our
- * application state.
- * To add a new action, add it to the switch statement in the reducer function
- *
+ * PaginationReducer
  */
 
 import { LOAD_POPULAR_REPOS, LOAD_POPULAR_REPOS_SUCCESS, LOAD_POPULAR_REPOS_FAILURE } from './actions';
 
 const initialState = {
   data: [],
-  error: null,
+  errorMessage: null,
   totalPages: 1
 };
 
@@ -20,7 +15,7 @@ function pagination(state = initialState, action) {
     case LOAD_POPULAR_REPOS:
       return {
         ...state,
-        error: null
+        errorMessage: null
       };
     case LOAD_POPULAR_REPOS_SUCCESS:
       return {
@@ -31,7 +26,7 @@ function pagination(state = initialState, action) {
     case LOAD_POPULAR_REPOS_FAILURE:
       return {
         ...state,
-        error: action.error
+        errorMessage: action.message
       };
     default:
       return state;

@@ -16,14 +16,19 @@ export function loadPopularRepos(currentPage = 1) {
     dispatch({ type: LOAD_POPULAR_REPOS });
 
     return fetch(`https://api.github.com/search/repositories?q=${params}`)
-      .then(response => {
-        return response.json().then(json => {
-          if (response.ok) {
-            dispatch({ type: LOAD_POPULAR_REPOS_SUCCESS, data: json });
-          } else {
-            dispatch({ type: LOAD_POPULAR_REPOS_FAILURE, error: json });
-          }
-        });
-      });
+      .then(
+        response => {
+          return response.json().then(json => {
+            if (response.ok) {
+              dispatch({ type: LOAD_POPULAR_REPOS_SUCCESS, data: json });
+            } else {
+              dispatch({ type: LOAD_POPULAR_REPOS_FAILURE, message: json.message });
+            }
+          });
+        },
+        error => {
+          dispatch({ type: LOAD_POPULAR_REPOS_FAILURE, message: error.message });
+        }
+      );
   };
 }
