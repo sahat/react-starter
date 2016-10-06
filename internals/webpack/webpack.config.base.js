@@ -5,6 +5,10 @@
 const path = require('path');
 const webpack = require('webpack');
 
+// PostCSS plugins
+const cssnext = require('postcss-cssnext');
+const postcssFocus = require('postcss-focus');
+
 module.exports = (options) => ({
   entry: options.entry,
   output: Object.assign({ // Compile into js/build.js
@@ -14,7 +18,8 @@ module.exports = (options) => ({
   module: {
     loaders: [
       {
-        test: /\.js$/, // Transform all .js files required somewhere with Babel
+        // Transform all .js files with Babel
+        test: /\.js$/,
         loader: 'babel',
         exclude: /node_modules/,
         query: options.babelQuery,
@@ -38,21 +43,24 @@ module.exports = (options) => ({
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader',
-      }, {
+      },
+      {
         test: /\.(jpg|png|gif)$/,
-        loaders: [
-          'file-loader',
-        ],
-      }, {
+        loader: 'file-loader'
+      },
+      {
         test: /\.html$/,
-        loader: 'html-loader',
-      }, {
+        loader: 'html-loader'
+      },
+      {
         test: /\.json$/,
-        loader: 'json-loader',
-      }, {
+        loader: 'json-loader'
+      },
+      {
         test: /\.(mp4|webm)$/,
-        loader: 'url-loader?limit=10000',
-      }],
+        loader: 'url-loader?limit=10000'
+      }
+    ]
   },
   plugins: options.plugins.concat([
     new webpack.ProvidePlugin({
@@ -68,12 +76,13 @@ module.exports = (options) => ({
     // inside your code for any environment checks; UglifyJS will automatically
     // drop any unreachable code.
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      },
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
   ]),
-  postcss: () => options.postcssPlugins,
+  postcss: () => [
+    postcssFocus(),
+    cssnext({ browsers: ['last 2 versions', 'IE > 10'] })
+  ],
   resolve: {
     modules: ['app', 'node_modules'],
     extensions: [
@@ -88,7 +97,7 @@ module.exports = (options) => ({
     ],
   },
   devtool: options.devtool,
-  target: 'web', // Make web variables accessible to webpack, e.g. window
-  stats: false, // Don't show stats in the console
+  // target: 'web', // Make window variables accessible to webpack
   progress: true,
+  stats: false
 });

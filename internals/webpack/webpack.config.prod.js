@@ -24,23 +24,18 @@ module.exports = require('./webpack.config.base')({
 
   // We use ExtractTextPlugin so we get a separate CSS file instead
   // of the CSS being in the JS and injected as a style tag
-  cssLoaders: ExtractTextPlugin.extract(
-    'style-loader',
-    'css-loader?modules&-autoprefixer&importLoaders=1!postcss-loader'
-  ),
+  cssLoaders: ExtractTextPlugin.extract({
+    fallbackLoader: 'style-loader',
+    loader: 'css-loader?modules&-autoprefixer&importLoaders=1!postcss-loader',
+  }),
 
-  vendorCssLoaders: ExtractTextPlugin.extract(
-    'style-loader',
-    'css-loader'
-  ),
-
-  // In production, we minify our CSS with cssnano
-  postcssPlugins: [
-    cssnext({ browsers: ['last 2 versions', 'IE > 10'] })
-  ],
+  // Do the same for vendor CSS, e.g. Bootstrap
+  vendorCssLoaders: ExtractTextPlugin.extract({
+    fallbackLoader: 'style-loader',
+    loader: 'css-loader',
+  }),
 
   plugins: [
-    // Code splitting for better performance
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       children: true,

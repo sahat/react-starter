@@ -46,11 +46,6 @@ module.exports = require('./webpack.config.base')({
 
   vendorCssLoaders: 'style-loader!css-loader',
 
-  // Process the CSS with PostCSS
-  postcssPlugins: [
-    cssnext({ browsers: ['last 2 versions', 'IE > 10'] })
-  ],
-
   // Tell babel that we want to hot-reload
   babelQuery: {
     presets: ['react-hmre'],
