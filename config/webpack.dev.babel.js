@@ -12,9 +12,6 @@ const cheerio = require('cheerio');
 const pkg = require(path.resolve(process.cwd(), 'package.json'));
 const dllPlugin = pkg.dllPlugin;
 
-// PostCSS plugins
-const cssnext = require('postcss-cssnext');
-
 const plugins = [
   new webpack.HotModuleReplacementPlugin(), // Tell webpack we want hot reloading
   new webpack.NoErrorsPlugin(),
@@ -24,7 +21,7 @@ const plugins = [
   }),
 ];
 
-module.exports = require('./webpack.config.base')({
+module.exports = require('./webpack.base.babel')({
   // Add hot reloading in development
   entry: [
     'eventsource-polyfill', // Necessary for hot reloading with IE
@@ -42,9 +39,9 @@ module.exports = require('./webpack.config.base')({
   plugins: dependencyHandlers().concat(plugins), // eslint-disable-line no-use-before-define
 
   // Load the CSS in a style tag in development
-  cssLoaders: 'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader',
+  cssLoader: 'style-loader!css-loader?localIdentName=[local]__[path][name]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader',
 
-  vendorCssLoaders: 'style-loader!css-loader',
+  cssVendorLoader: 'style-loader!css-loader',
 
   // Tell babel that we want to hot-reload
   babelQuery: {

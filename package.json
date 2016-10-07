@@ -10,7 +10,7 @@
   "scripts": {
     "postinstall": "npm run build:dll",
     "prebuild": "npm run build:clean && npm run testt",
-    "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.config.prod.js --color -p",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.babel.js --color -p --progress",
     "build:clean": "npm run test:clean && rimraf ./build",
     "build:dll": "node ./internals/scripts/dependencies.js",
     "start": "cross-env NODE_ENV=development node server",
@@ -35,14 +35,7 @@
   },
   "babel": {
     "presets": [
-      [
-        "latest",
-        {
-          "es2015": {
-            "modules": false
-          }
-        }
-      ],
+      ["es2015", { "modules": false }],
       "react",
       "stage-0"
     ],
@@ -137,7 +130,7 @@
     "babel-plugin-transform-react-constant-elements": "6.9.1",
     "babel-plugin-transform-react-inline-elements": "6.8.0",
     "babel-plugin-transform-react-remove-prop-types": "0.2.9",
-    "babel-preset-latest": "6.16.0",
+    "babel-preset-es2015": "6.16.0",
     "babel-preset-react": "6.11.1",
     "babel-preset-react-hmre": "1.1.1",
     "babel-preset-stage-0": "6.5.0",
