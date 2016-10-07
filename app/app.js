@@ -5,7 +5,6 @@
  * code.
  */
 
-// Needed for redux-saga es6 generator support
 import 'whatwg-fetch';
 import 'babel-polyfill';
 
@@ -13,10 +12,8 @@ import 'babel-polyfill';
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
-/* eslint-disable import/no-unresolved */
 // Load the favicon
 import 'file?name=[name].[ext]!./favicon.png';
-/* eslint-enable import/no-unresolved */
 
 // Import all the third party stuff
 import React from 'react';
@@ -26,10 +23,6 @@ import { Router, browserHistory, applyRouterMiddleware } from 'react-router';
 import useScroll from 'react-router-scroll';
 import configureStore from './store';
 
-// Create redux store with history
-// this uses the singleton browserHistory provided by react-router
-// Optionally, this could be changed to leverage a created history
-// e.g. `const browserHistory = useRouterHistory(createBrowserHistory)();`
 const initialState = {};
 const store = configureStore(initialState, browserHistory);
 
