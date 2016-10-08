@@ -5,6 +5,7 @@
  * code.
  */
 
+// Polyfills
 import 'whatwg-fetch';
 import 'babel-polyfill';
 
@@ -13,7 +14,7 @@ import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
 // Load the favicon
-import 'file?name=[name].[ext]!./favicon.png';
+import './favicon.ico';
 
 // Import all the third party stuff
 import React from 'react';
@@ -23,6 +24,7 @@ import { Router, browserHistory, applyRouterMiddleware } from 'react-router';
 import useScroll from 'react-router-scroll';
 import configureStore from './store';
 
+// Create Redux store with browserHistory provided by react-router
 const initialState = {};
 const store = configureStore(initialState, browserHistory);
 
