@@ -20,12 +20,8 @@ export default function configureStore(initialState = {}) {
   /* istanbul ignore next */
   if (module.hot) {
     module.hot.accept('./reducers', () => {
-      System.import('./reducers').then((reducerModule) => {
-        const createReducers = reducerModule.default;
-        const nextReducers = createReducers(store.asyncReducers);
-
-        store.replaceReducer(nextReducers);
-      });
+      const createReducers = require('./reducers').default;
+      store.replaceReducer(createReducers());
     });
   }
 

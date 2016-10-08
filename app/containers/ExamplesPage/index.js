@@ -13,6 +13,13 @@ export class ExamplesPage extends React.Component {
       <div className="container">
         <Helmet title="Examples" />
         <h1 className="display-4 m-t-3 m-b-3">Examples</h1>
+        <ul>
+          <li>Dropdown list</li>
+          <li>Search</li>
+          <li>Filtering checkboxes</li>
+          <li>Drag and Drop</li>
+          <li>Infinite scroll with progressive preloading - medium, icons8, facebook</li>
+        </ul>
         <div className="card card-block">
           <h4 className="card-title">Bootstrap CSS overrides</h4>
           <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

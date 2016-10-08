@@ -1,3 +1,5 @@
+TODO: Merge eslint into package.json
+
 ## Using this boilerplate with WebStorm
 
 WebStorm is a powerful IDE, and why not also use it as debugger tool? Here is the steps
@@ -31,3 +33,7 @@ ESLint help making all developer follow the same coding format. Please also sett
 3. Click `Enable`
 
 ![Setting up ESLint](webstorm-eslint.png)
+
+
+Explain what those babel plugins and presets are for:
+URL: https://github.com/thejameskyle/babel-react-optimize

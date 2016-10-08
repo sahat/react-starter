@@ -49,7 +49,7 @@ module.exports = (options) => ({
       // file-loader makes sure those assets end up in the `build` folder.
       {
         test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
-        loader: 'file-loader'
+        loader: 'file-loader?name=[name].[ext]'
       },
       {
         test: /\.html$/,

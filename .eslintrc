@@ -21,6 +21,7 @@
   "rules": {
     "new-cap": 0,
     "comma-dangle": 0,
+    "global-require": 0,
     "arrow-body-style": 0,
     "import/imports-first": 0,
     "import/newline-after-import": 0,
@@ -61,7 +62,7 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "./internals/webpack/webpack.test.babel.js"
+        "config": "./config/webpack.test.babel.js"
       }
     }
   }
