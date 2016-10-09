@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-import createReducer from './reducers';
+import rootReducer from './reducers';
 
 const devtools = window.devToolsExtension || (() => noop => noop);
 
@@ -12,16 +12,15 @@ export default function configureStore(initialState = {}) {
   );
 
   const store = createStore(
-    createReducer(),
+    rootReducer,
     initialState,
     enhancer
   );
 
-  /* istanbul ignore next */
   if (module.hot) {
     module.hot.accept('./reducers', () => {
-      const createReducers = require('./reducers').default;
-      store.replaceReducer(createReducers());
+      const nextRootReducer = require('./reducers').default;
+      store.replaceReducer(nextRootReducer);
     });
   }
 

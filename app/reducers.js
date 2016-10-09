@@ -3,20 +3,13 @@
  * If we were to do this in store.js, reducers wouldn't be hot reloadable.
  */
 
-import { fromJS } from 'immutable';
 import { combineReducers } from 'redux';
-import { LOCATION_CHANGE } from 'react-router-redux';
 
-import globalReducer from 'containers/App/reducer';
+// Include all your app reducers here
 import home from 'containers/HomePage/reducer';
 import pagination from 'containers/ExamplesPage/Pagination/reducer';
 
-export default function createReducer(asyncReducers) {
-  return combineReducers({
-    home,
-    pagination,
-    // route: routeReducer,
-    // global: globalReducer,
-    // ...asyncReducers,
-  });
-}
+export default combineReducers({
+  home,
+  pagination
+});
