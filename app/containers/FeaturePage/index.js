@@ -3,23 +3,11 @@
  *
  * List all the features
  */
+
 import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { push } from 'react-router-redux';
 import Helmet from 'react-helmet';
 
-import css from './styles.css';
-
-export class FeaturePage extends React.Component {
-  openRoute = (route) => {
-    this.props.changeRoute(route);
-  };
-
-  openHomePage = () => {
-    this.openRoute('/');
-  };
-
+class FeaturePage extends React.Component {
   render() {
     return (
       <div className="container">
@@ -45,14 +33,5 @@ export class FeaturePage extends React.Component {
     );
   }
 }
-FeaturePage.propTypes = {
-  changeRoute: React.PropTypes.func,
-};
 
-function mapDispatchToProps(dispatch) {
-  return {
-    changeRoute: (url) => dispatch(push(url)),
-  };
-}
-
-export default connect(null, mapDispatchToProps)(FeaturePage);
+export default FeaturePage;
