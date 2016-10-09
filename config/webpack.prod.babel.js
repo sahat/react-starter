@@ -66,4 +66,6 @@ module.exports = require('./webpack.base.babel')({
     // Extract the CSS into a seperate file
     new ExtractTextPlugin('[name].[contenthash].css')
   ],
+
+  stats: true
 });

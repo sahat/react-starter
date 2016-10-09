@@ -95,5 +95,5 @@ module.exports = (options) => ({
   resolve: {
     modules: ['app', 'node_modules'],
   },
-  stats: false
+  stats: options.stats
 });
