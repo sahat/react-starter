@@ -4,8 +4,11 @@ import { Link } from 'react-router';
 
 import css from './styles.css';
 
-// Custom SVG Icons
+// Custom SVG icon
 import ContactsIcon from './contacts.svg';
+
+// Custom Component icon
+import FacebookIcon from '../../../components/FacebookIcon';
 
 const CalendarIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" height="75" width="75" viewBox="0 0 50 50" enableBackground="new 0 0 50 50">
@@ -57,8 +60,11 @@ class IconsCustomSvg extends React.Component {
         <h4>Generic Icon Component</h4>
         <p>As an alternative, create a custom SVG wrapper component <code>{'<Icon />'}</code> which takes several props like <strong>src</strong>, <strong>width</strong>, <strong>height</strong> and <strong>color</strong>.</p>
         <p>
-          Yet another common approach is to have an individual component for each icon (see <strong>react-icons</strong> example). Sarah Drasner wrote an excellent tutorial <a href="https://css-tricks.com/creating-svg-icon-system-react/">Creating an SVG Icon System with React</a> on this topic.
+          Yet another common approach is to have an individual component for each icon. Sarah Drasner wrote an excellent tutorial <a href="https://css-tricks.com/creating-svg-icon-system-react/">Creating an SVG Icon System with React</a> if you want to learn more.
         </p>
+
+        <h5 className="lead">{`<FacebookIcon />`}</h5>
+        <FacebookIcon />
       </div>
     );
   }
