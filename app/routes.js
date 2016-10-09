@@ -1,13 +1,14 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
+// Top-level pages
 import App from 'containers/App';
 import HomePage from 'containers/HomePage';
 import FeaturePage from 'containers/FeaturePage';
 import ExamplesPage from 'containers/ExamplesPage';
 import NotFoundPage from 'containers/NotFoundPage';
 
-// Example pages
+// Example pages under "/examples"
 import BootstrapGlobal from 'containers/ExamplesPage/BootstrapGlobal';
 import BootstrapClassnames from 'containers/ExamplesPage/BootstrapClassnames';
 import Pagination from 'containers/ExamplesPage/Pagination';

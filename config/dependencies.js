@@ -1,49 +1,35 @@
-/*eslint-disable*/
+const fs = require('fs');
+const path = require('path');
+const chalk = require('chalk');
+const shell = require('shelljs');
 
-// No need to build the DLL in production
+const defaults = require('lodash/defaultsDeep');
+const pkg = require('../package.json');
+
+// Don't build the DLL in production
 if (process.env.NODE_ENV === 'production') {
-  process.exit(0)
+  process.exit(0);
 }
 
-require('shelljs/global')
+const outputPath = path.join(process.cwd(), pkg.dllPlugin.path);
+const dllManifestPath = path.join(outputPath, 'package.json');
 
-const path = require('path')
-const fs = require('fs')
-const exists = fs.existsSync
-const writeFile = fs.writeFileSync
 
-const defaults = require('lodash/defaultsDeep')
-const pkg = require(path.join(process.cwd(), 'package.json'))
-const config = require('../config')
-const dllConfig = defaults(pkg.dllPlugin, config.dllPlugin.defaults)
-const outputPath = path.join(process.cwd(), dllConfig.path)
-const dllManifestPath = path.join(outputPath, 'package.json')
+shell.mkdir('-p', outputPath);
 
-/**
- * I use node_modules/react-boilerplate-dlls by default just because
- * it isn't going to be version controlled and babel wont try to parse it.
- */
-mkdir('-p', outputPath)
+shell.echo(chalk.magenta('=> Building the Webpack DLL...'));
 
-echo('Building the Webpack DLL...')
-
-/**
- * Create a manifest so npm install doesnt warn us
- */
-if (!exists(dllManifestPath)) {
-  writeFile(
+if (!fs.existsSync(dllManifestPath)) {
+  fs.writeFileSync(
     dllManifestPath,
     JSON.stringify(defaults({
-      name: 'react-boilerplate-dlls',
-      private: true,
-      author: pkg.author,
-      repository: pkg.repository,
-      version: pkg.version
+      name: 'react-stater-dlls',
+      version: pkg.version,
+      private: true
     }), null, 2),
-
     'utf8'
-  )
+  );
 }
 
 // the BUILDING_DLL env var is set to avoid confusing the development environment
-exec('cross-env BUILDING_DLL=true webpack --display-chunks --color --config internals/webpack/webpack.config.dll.js')
+shell.exec('cross-env BUILDING_DLL=true webpack --display-chunks --color --config config/webpack.dll.babel.js');

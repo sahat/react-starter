@@ -21,5 +21,5 @@ setup(app, {
 // Start Express server
 app.listen(port, () => {
   console.log(chalk.green('✔'), 'App is running at:', chalk.underline.bold(`http://localhost:${port}`));
-  console.info('  Press CTRL-C to stop\n');
+  console.log('  Press CTRL-C to stop\n');
 });
