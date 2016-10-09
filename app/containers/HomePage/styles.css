@@ -1,5 +1,6 @@
 /* HomePage styles */
-/* CodePen by Mike Fowler (http://codepen.io/mikefowler) */
+
+/* Location beacon CodePen by Mike Fowler (http://codepen.io/mikefowler) */
 
 :root {
   --diameter: 1.25em;
@@ -26,13 +27,13 @@
   box-shadow: 0 0 0 var(--border-width) var(--border-color), 0 0 3px rgba(0, 0, 0, 0.4);
 }
 
-marker:after {
+marker::after {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   width: calc(var(--diameter) * 2);
-  height: calc(var(--diameter) * 2) ;
+  height: calc(var(--diameter) * 2);
   margin-left: -var(--diameter);
   margin-top: -var(--diameter);
   box-shadow: 0 0 0 2px var(--border-color);
@@ -41,8 +42,13 @@ marker:after {
 }
 
 @keyframes pulse {
-  0%   { transform: scale3d(0.8, 0.8, 0.8); }
-  100% { transform: scale3d(1, 1, 1); }
+  0% {
+    transform: scale3d(0.8, 0.8, 0.8);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 @keyframes sonar {
@@ -50,7 +56,9 @@ marker:after {
     transform: scale3d(0.5, 0.5, 0.5);
     opacity: 1;
   }
-  50%, 100% {
+
+  50%,
+  100% {
     transform: scale3d(1, 1, 1);
     opacity: 0;
   }

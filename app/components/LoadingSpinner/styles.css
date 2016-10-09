@@ -1,6 +1,9 @@
+/* LoadingSpinner styles */
+
 :root {
   --diameter: 25px;
 }
+
 .loading {
   display: block;
   height: var(--diameter);
