@@ -1,25 +1,15 @@
-/**
- * WEBPACK DLL GENERATOR
- *
- * This profile is used to cache webpack's module
- * contexts for external library and framework type
- * dependencies which will usually not change often enough
- * to warrant building them from scratch every time we use
- * the webpack process.
- */
-
-const path = require('path');
-const pullAll = require('lodash/pullAll');
-const uniq = require('lodash/uniq');
+const { uniq, pullAll } = require('lodash');
 const webpack = require('webpack');
 const pkg = require('../package.json');
 
+// Do not build the Dll in production.
 if (!pkg.dllPlugin) {
-  process.exit(0);
+  process.exit();
 }
 
-const outputPath = path.join(process.cwd(), pkg.dllPlugin.path);
-
+// DLL consists of all modules found in "dependencies" of package.json, except the ones
+// defined in the "excluded" entry of "dllPlugin" of package.json,
+// plus any aditional packages in the "include" entry.
 const dllEntry = () => {
   const dependencyNames = Object.keys(pkg.dependencies);
   const exclude = pkg.dllPlugin.exclude;
@@ -29,19 +19,33 @@ const dllEntry = () => {
   return pullAll(includeDependencies, exclude);
 };
 
+// This is the Dll configuration (separate from development and production).
+// It won’t be called by the Webpack middleware, Webpack server, or anything else,
+// except manually or through a pre-build step.
+// Dll dramatically increases the app start time and incremental build speed.
 module.exports = require('./webpack.base.babel')({
-  context: process.cwd(),
-  entry: dllEntry(),
-  devtool: 'eval',
+  entry: {
+    vendor: dllEntry()
+  },
+  // Generates "vendor.dll.js" inside "dll/" folder relative to project root.
+  // The "vendor" prefix comes from the "entry" declaration above.
   output: {
     filename: '[name].dll.js',
-    path: outputPath,
+    // Path is relative to "context", which is `process.cwd()` by default.
+    path: 'dll/',
+    // Expose the dll function into the global scope.
     library: '[name]'
   },
   plugins: [
+    // Outputs Dll bundle and JSON manifest.
+    // A manifest.json is really important, it contains mappings between the file paths
+    // of modules inside the bundle and IDs that each module has been assigned.
     new webpack.DllPlugin({
+      // Name of the global dll function (should match `output.library` above).
       name: '[name]',
-      path: path.join(outputPath, '[name].json')
+      // Output path of the manifest file, which is a mapping between
+      // modules included in a bundle and the internal ID within that bundle.
+      path: 'dll/manifest.json'
     })
   ]
 });
