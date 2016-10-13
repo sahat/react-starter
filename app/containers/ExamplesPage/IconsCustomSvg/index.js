@@ -63,7 +63,7 @@ class IconsCustomSvg extends React.Component {
           Yet another common approach is to have an individual component for each icon. Sarah Drasner wrote an excellent tutorial <a href="https://css-tricks.com/creating-svg-icon-system-react/">Creating an SVG Icon System with React</a> if you want to learn more.
         </p>
 
-        <h5 className="lead">{'<FacebookIcon />'}</h5>
+        <h5>Example: <code>{'<FacebookIcon />'}</code> component</h5>
         <FacebookIcon />
       </div>
     );
