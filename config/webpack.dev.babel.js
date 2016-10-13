@@ -79,8 +79,6 @@ function dependencyHandlers() {
     ];
   }
 
-  const dllPath = path.resolve(process.cwd(), dllPlugin.path || 'node_modules/react-boilerplate-dlls');
-
   /**
    * If DLLs aren't explicitly defined, we assume all production dependencies listed in package.json
    * Reminder: You need to exclude any server side dependencies by listing them in dllConfig.exclude
@@ -88,7 +86,7 @@ function dependencyHandlers() {
    * @see https://github.com/mxstbr/react-boilerplate/tree/master/docs/general/webpack.md
    */
   if (!dllPlugin.dlls) {
-    const manifestPath = path.resolve(dllPath, 'reactBoilerplateDeps.json');
+    const manifestPath = path.resolve(process.cwd(), 'dll', 'manifest.json');
 
     if (!fs.existsSync(manifestPath)) {
       console.log(chalk.red('The Webpack DLL manifest is missing. Please run `npm run build:dll`'));
@@ -103,24 +101,6 @@ function dependencyHandlers() {
     ];
   }
 
-  // If DLLs are explicitly defined, we automatically create a DLLReferencePlugin for each of them.
-  const dllManifests = Object.keys(dllPlugin.dlls).map((name) => path.join(dllPath, `/${name}.json`));
-
-  return dllManifests.map((manifestPath) => {
-    if (!fs.existsSync(path)) {
-      if (!fs.existsSync(manifestPath)) {
-        console.error(`The following Webpack DLL manifest is missing: ${path.basename(manifestPath)}`);
-        console.error(`Expected to find it in ${dllPath}`);
-        console.error('Please run: npm run build:dll');
-        process.exit(0);
-      }
-    }
-
-    return new webpack.DllReferencePlugin({
-      context: process.cwd(),
-      manifest: require(manifestPath), // eslint-disable-line global-require
-    });
-  });
 }
 
 /**
@@ -136,9 +116,7 @@ function templateContent() {
 
   const doc = cheerio(html);
   const body = doc.find('body');
-  const dllNames = !dllPlugin.dlls ? ['reactBoilerplateDeps'] : Object.keys(dllPlugin.dlls);
-
-  dllNames.forEach(dllName => body.append(`<script data-dll='true' src='/${dllName}.dll.js'></script>`));
+  body.append(`<script data-dll='true' src='/vendor.dll.js'></script>`)
 
   return doc.toString();
 }

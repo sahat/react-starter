@@ -27,7 +27,7 @@ const addDevMiddlewares = (app, webpackConfig) => {
   if (pkg.dllPlugin) {
     app.get(/\.dll\.js$/, (req, res) => {
       const filename = req.path.replace(/^\//, '');
-      res.sendFile(path.join(process.cwd(), pkg.dllPlugin.path, filename));
+      res.sendFile(path.join(process.cwd(), 'dll', filename));
     });
   }
 
