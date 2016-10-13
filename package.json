@@ -12,7 +12,7 @@
     "prebuild": "npm run build:clean && npm run testt",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.babel.js --color -p --progress",
     "build:clean": "npm run test:clean && rimraf ./build",
-    "build:dll": "node ./config/dependencies.js",
+    "build:dll": "cross-env --display-chunks --color --config config/webpack.dll.babel.js",
     "start": "cross-env NODE_ENV=development node server",
     "start:production": "npm run build && cross-env NODE_ENV=production node server",
     "lint": "npm run lint:js && npm run lint:css",
@@ -121,7 +121,6 @@
     "webpack-hot-middleware": "2.12.2"
   },
   "dllPlugin": {
-    "path": "node_modules/react-starter-dlls",
     "exclude": [
       "chalk",
       "compression",
@@ -130,10 +129,7 @@
       "minimist",
       "react-icons"
     ],
-    "include": [
-      "core-js",
-      "eventsource-polyfill"
-    ]
+    "include": []
   },
   "babel": {
     "presets": [
