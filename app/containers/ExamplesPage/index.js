@@ -28,7 +28,7 @@ class ExamplesPage extends React.Component {
         </div>
 
         <div className="card card-block">
-          <h4 className="card-title">GitHub API Example</h4>
+          <h4 className="card-title">Real-time form validation with debounce</h4>
           <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <Link to="/examples/pagination" className="card-link">User info</Link>
           <Link to="/examples/pagination" className="card-link">Repository info</Link>
@@ -38,7 +38,7 @@ class ExamplesPage extends React.Component {
         <div className="card card-block">
           <h4 className="card-title">Lazy load images</h4>
           <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <Link to="/examples/pagination" className="card-link">Lazy load</Link>
+          <Link to="/examples/lazy-load" className="card-link">Lazy load</Link>
         </div>
 
         <div className="card card-block">

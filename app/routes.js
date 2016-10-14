@@ -15,6 +15,7 @@ import Pagination from 'containers/ExamplesPage/Pagination';
 import PaginationUrl from 'containers/ExamplesPage/PaginationUrl';
 import IconsFontAwesome from 'containers/ExamplesPage/IconsFontAwesome';
 import IconsCustomSvg from 'containers/ExamplesPage/IconsCustomSvg';
+import LazyLoadImages from 'containers/ExamplesPage/LazyLoadImages';
 
 export default function createRoutes(store) {
   return (
@@ -29,6 +30,7 @@ export default function createRoutes(store) {
         <Route path="pagination-url" component={PaginationUrl} />
         <Route path="icons-fa" component={IconsFontAwesome} />
         <Route path="icons-svg" component={IconsCustomSvg} />
+        <Route path="lazy-load" component={LazyLoadImages} />
       </Route>
       <Route path="*" component={NotFoundPage} />
     </Route>
