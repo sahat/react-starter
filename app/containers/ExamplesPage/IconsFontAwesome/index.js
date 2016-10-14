@@ -57,13 +57,6 @@ class IconsFontAwesome extends React.Component {
             <FaCcAmex color="#0072BC" size={36} />
           </li>
         </ul>
-
-        <div className="alert alert-warning">
-          <p>
-            <strong>Note:</strong> If you feel lazy, you could simply include the following CDN link inside <strong>index.html</strong> and call it a day:
-          </p>
-          <pre>{'<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">'}</pre>
-        </div>
       </div>
     );
   }
