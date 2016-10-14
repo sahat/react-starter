@@ -2,11 +2,6 @@ const { uniq, pullAll } = require('lodash');
 const webpack = require('webpack');
 const pkg = require('../package.json');
 
-// Do not build the Dll in production.
-if (!pkg.dllPlugin) {
-  process.exit();
-}
-
 // DLL consists of all modules found in "dependencies" of package.json, except the ones
 // defined in the "excluded" entry of "dllPlugin" of package.json,
 // plus any aditional packages in the "include" entry.
