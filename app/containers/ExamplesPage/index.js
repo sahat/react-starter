@@ -28,14 +28,6 @@ class ExamplesPage extends React.Component {
         </div>
 
         <div className="card card-block">
-          <h4 className="card-title">Real-time form validation with debounce</h4>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <Link to="/examples/pagination" className="card-link">User info</Link>
-          <Link to="/examples/pagination" className="card-link">Repository info</Link>
-          <Link to="/examples/pagination" className="card-link">Issues & pull requests</Link>
-        </div>
-
-        <div className="card card-block">
           <h4 className="card-title">Lazy load images</h4>
           <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <Link to="/examples/lazy-load" className="card-link">Lazy load</Link>
@@ -49,10 +41,12 @@ class ExamplesPage extends React.Component {
         </div>
 
         <div className="card card-block">
-          <h4 className="card-title">File upload <small className="text-muted">(requires back-end)</small></h4>
+          <h4 className="card-title">Authentication <small className="text-muted">(requires back-end)</small></h4>
           <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <Link to="/examples/pagination" className="card-link">Basic file upload</Link>
-          <Link to="/examples/pagination" className="card-link">Drag & Drop upload</Link>
+          <Link to="/examples/pagination" className="card-link">Log in</Link>
+          <Link to="/examples/pagination" className="card-link">Sign up</Link>
+          <Link to="/examples/pagination" className="card-link">Forgot your password</Link>
+          <Link to="/examples/pagination" className="card-link">Sign in with Facebook</Link>
         </div>
       </div>
     );
