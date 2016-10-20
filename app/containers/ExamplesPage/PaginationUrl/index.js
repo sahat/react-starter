@@ -21,6 +21,12 @@ export class Pagination extends React.Component {
     this.props.dispatch(loadPopularRepos(selectedPage));
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.query.page !== this.props.location.query.page) {
+      this.handlePageClick({ selected: nextProps.location.query.page - 1 })
+    }
+  }
+
   handlePageClick(data) {
     const selectedPage = data.selected + 1;
 
@@ -34,7 +40,7 @@ export class Pagination extends React.Component {
 
   render() {
     const { location, data, totalPages, errorMessage } = this.props;
-    const initialPage = location.query.page ? location.query.page - 1 : 0;
+    const selectedPage = location.query.page ? location.query.page - 1 : 0;
 
     return (
       <div className="container">
@@ -81,7 +87,7 @@ export class Pagination extends React.Component {
           pageNum={totalPages}
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
-          initialSelected={initialPage}
+          forceSelected={selectedPage}
           clickCallback={this.handlePageClick}
           containerClassName="pagination"
           breakClassName="page-item"
